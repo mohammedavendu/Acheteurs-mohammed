@@ -240,6 +240,22 @@ html.cb-open .sticky{visibility:hidden}
 .steps li.rv:nth-child(3){transition-delay:.24s}
 .btn-main{transition:background .15s,transform .15s,box-shadow .15s}
 .btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(29,28,26,.18)}
+.bulles{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0 4px;margin-top:4px}
+.bulles::-webkit-scrollbar{display:none}
+.hero .bulles{flex-wrap:wrap;overflow:visible}
+@media (max-width:420px){.hero .bulles a{font-size:.82rem;padding:8px 12px}}
+.bulles a{flex:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:700;font-size:.88rem;padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:#fff;transition:border-color .15s,background .15s}
+.bulles a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.bulles a:hover{border-color:var(--gold);background:var(--gold-soft)}
+.bulles a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.back-up{display:inline-block;margin-top:26px;font-weight:700;font-size:.92rem;color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+#comparatif,#faq,#guide,#financement,#calculatrice{scroll-margin-top:84px}
+.bulles-fixe{display:none}
+@media (min-width:921px){
+  .bulles-fixe{display:block;position:fixed;left:0;right:0;top:0;z-index:30;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 6px 20px rgba(29,28,26,.06);padding-block:10px;transform:translateY(-110%);transition:transform .25s}
+  .bulles-fixe.show{transform:none}
+  .bulles-fixe .bulles{justify-content:center;margin:0}
+}
 .js-only{display:none}
 html.js .fin-start{display:none}
 html.js .soft-cta{display:inline-block}
@@ -573,10 +589,7 @@ html.js .js-only{display:grid}
         <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#b8925a"/><path d="M5 9.2l2.6 2.6L13 6.4" stroke="#ffffff" stroke-width="2" fill="none"/></svg>Sans engagement</li>
         <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#b8925a"/><path d="M5 9.2l2.6 2.6L13 6.4" stroke="#ffffff" stroke-width="2" fill="none"/></svg>Courtier OACIQ · permis J2572</li>
       </ul>
-      <div class="soft-links">
-        <a class="soft-cta js-only" href="#calculatrice">Pas encore prêt? Estimez combien vous pouvez acheter →</a>
-        <a class="soft-cta guide-link" href="#guide">Premier achat? Recevez le guide gratuit (CELIAPP, RAP, aides) →</a>
-      </div>
+      <nav class="bulles" aria-label="Raccourcis"><a href="#calculatrice" data-b="calculatrice">Combien puis-je acheter?</a><a href="#guide" data-b="guide">Guide premier achat</a><a href="#comparatif" data-b="comparatif">Seul ou avec un courtier?</a><a href="#faq" data-b="faq">Questions fréquentes</a></nav>
     </div>
     <aside class="hero-visual">
       <div class="mail-wrap">
@@ -619,7 +632,7 @@ html.js .js-only{display:grid}
   </div>
 </section>
 
-<section class="block alt">
+<section class="block alt" id="comparatif">
   <div class="wrap">
     <div class="kicker">La différence</div>
     <h2>Chercher seul ou avec un courtier qui vous représente</h2>
@@ -645,6 +658,8 @@ html.js .js-only{display:grid}
         </ul>
       </div>
     </div>
+
+    <a class="back-up" href="#formulaire">↑ Activer mes alertes gratuites</a>
   </div>
 </section>
 
@@ -749,7 +764,7 @@ html.js .js-only{display:grid}
   </div>
 </section>
 
-<section class="block alt">
+<section class="block alt" id="faq">
   <div class="wrap">
     <div class="kicker">Questions fréquentes</div>
     <h2>Avant de vous inscrire</h2>
@@ -761,6 +776,8 @@ html.js .js-only{display:grid}
       <details><summary>Je n'ai pas encore de préapprobation. Est-ce un problème?</summary><p>Pas du tout. Je vous accompagne pour savoir combien vous pouvez être préqualifié, avec les spécialistes et courtiers hypothécaires avec qui je travaille. C'est fortement recommandé avant de faire une offre.</p></details>
       <details><summary>Comment me désabonner?</summary><p>Cliquez sur le lien de désabonnement dans un courriel ou dites-le-moi simplement. C'est immédiat.</p></details>
     </div>
+
+    <a class="back-up" href="#formulaire">↑ Activer mes alertes gratuites</a>
   </div>
 </section>
 
@@ -801,6 +818,7 @@ html.js .js-only{display:grid}
   <p>Ce site utilise des témoins (cookies) pour mesurer l'efficacité de ses publicités. Vous pouvez les accepter ou les refuser. <a href="confidentialite.html">En savoir plus</a></p>
   <div class="cb-actions"><button type="button" class="btn btn-main" id="cb-yes">Accepter</button><button type="button" class="btn cb-no" id="cb-no">Refuser</button></div>
 </div>
+<div class="bulles-fixe" id="bullesFixe" aria-hidden="true"><div class="wrap"><nav class="bulles" aria-label="Raccourcis (barre fixe)"><a href="#calculatrice" data-b="calculatrice">Combien puis-je acheter?</a><a href="#guide" data-b="guide">Guide premier achat</a><a href="#comparatif" data-b="comparatif">Seul ou avec un courtier?</a><a href="#faq" data-b="faq">Questions fréquentes</a></nav></div></div>
 <div class="sticky" id="sticky"><a href="#formulaire" class="btn btn-main"><span>Mes alertes<span class="sl"> gratuites</span></span></a><a href="sms:+15145577290" class="btn btn-call m-only" data-call aria-label="Texter Mohammed">Texto</a><a href="mailto:Mohammedavendu@gmail.com" class="btn btn-call d-only" aria-label="Écrire à Mohammed par courriel">Courriel</a><a href="tel:+15145577290" class="btn btn-call" data-call aria-label="Appeler Mohammed au 514 557-7290"><span class="m-only">Appeler</span><span class="d-only">514 557-7290</span></a></div>
 
 <script>
@@ -1273,6 +1291,14 @@ if ("IntersectionObserver" in window) {
   document.getElementById("cb-no").addEventListener("click", () => choose(false));
   const m = document.getElementById("cb-manage"); if (m) m.addEventListener("click", show);
   if (window.__consent !== "oui" && window.__consent !== "non") show();
+})();
+
+/* ---------- Bulles de raccourcis : suivi des clics + barre fixe sur ordinateur ---------- */
+(function(){
+  document.querySelectorAll('.bulles a').forEach(function(a){a.addEventListener('click',function(){try{if(typeof gtag==='function')gtag('event','bulle_clic',{cible:a.dataset.b});}catch(e){}});});
+  var bar=document.getElementById('bullesFixe'),quiz=document.getElementById('formulaire');
+  if(!bar||!quiz||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(en){var vis=!en[0].isIntersecting&&en[0].boundingClientRect.top<0;bar.classList.toggle('show',vis);bar.setAttribute('aria-hidden',String(!vis));},{threshold:0}).observe(quiz);
 })();
 </script>
 </body>
