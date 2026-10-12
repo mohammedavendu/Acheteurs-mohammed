@@ -454,12 +454,35 @@ html.js .js-only{display:grid}
 .quiz:not(.js-on) form:has([name="delai"]:checked) .bar i{width:83%}
 .quiz:not(.js-on) form:has([name="financement"]:checked) .bar i{width:100%}
 </style>
+<style id="theme-marine">
+/* Palette Marine + fond blanc (bleu marine = confiance, or = haut de gamme) */
+:root{--ink:#16203a;--ink-soft:#5a6073;--bg:#ffffff;--paper:#f4f6fa;--line:#e3e7ef;--cta:#16203a;--cta-hover:#0c1428;--gold:#b59357;--gold-soft:#eaf0f8;--sms:#f4f6fa}
+.zones li,.dot,.tag.new{color:#16203a}
+.mail-bar i{background:#d5dbe5}
+.steps li::before{color:#16203a}
+h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:0;line-height:1.05}
+h1{font-size:clamp(2.5rem,5.4vw,4.1rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.thanks h2,.exit-card h2{font-size:1.9rem}
+h1 em{font-style:normal;color:var(--gold)}
+.btn{border-radius:4px;letter-spacing:.06em;text-transform:uppercase;font-size:.86rem}
+.sticky .btn{font-size:.8rem}
+.kicker,.eyebrow{letter-spacing:.24em}
+.top{border-bottom:1px solid var(--gold)}
+.btn-main,.mail-btn,.avatar,.fin-panel{background:var(--ink)}
+.btn-main:hover{background:var(--cta-hover)}
+section.block.final{background:var(--ink);color:#f3efe5}
+section.block.final h2{color:#fff}
+section.block.final p{color:#d9d2c3}
+section.block.final .btn-main{background:var(--gold);color:var(--ink)}
+.bulles-fixe{background:rgba(255,255,255,.96)}
+</style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <div class="brand-wrap"><svg class="logo" viewBox="0 0 200 200" width="44" height="44" aria-hidden="true"><g fill="none" stroke="#b8925a" stroke-linecap="round" stroke-linejoin="round"><path d="M38 184V90A62 62 0 0 1 162 90V184" stroke-width="4.0"/><path d="M47 184V90A53 53 0 0 1 153 90V184" stroke-width="1.6"/><path d="M32 184H168" stroke-width="3.0"/><path d="M72 66L100 46L128 66" stroke-width="3.2"/></g><g fill="#1d1c1a" transform="translate(100 140) scale(.78) translate(-100.5 -100)"><rect x="50" y="58" width="5" height="84"/><polygon points="51,58 63,58 89,142 83,142"/><polygon points="83,142 87,142 108,58 104,58"/><rect x="104" y="58" width="13" height="84"/><rect x="140" y="58" width="13" height="84"/><rect x="117" y="96" width="23" height="4"/><rect x="42" y="56" width="22" height="3"/><rect x="42" y="141" width="21" height="3"/><rect x="98" y="56" width="25" height="3"/><rect x="98" y="141" width="25" height="3"/><rect x="134" y="56" width="25" height="3"/><rect x="134" y="141" width="25" height="3"/></g></svg><div class="brand">Mohammed Hadj Doula<small>Courtier immobilier · Vendirect inc.</small></div></div>
+    <div class="brand-wrap"><svg class="logo" viewBox="0 0 200 200" width="44" height="44" aria-hidden="true"><g fill="none" stroke="#b8925a" stroke-linecap="round" stroke-linejoin="round"><path d="M38 184V90A62 62 0 0 1 162 90V184" stroke-width="4.0"/><path d="M47 184V90A53 53 0 0 1 153 90V184" stroke-width="1.6"/><path d="M32 184H168" stroke-width="3.0"/><path d="M72 66L100 46L128 66" stroke-width="3.2"/></g><g fill="#16203a" transform="translate(100 140) scale(.78) translate(-100.5 -100)"><rect x="50" y="58" width="5" height="84"/><polygon points="51,58 63,58 89,142 83,142"/><polygon points="83,142 87,142 108,58 104,58"/><rect x="104" y="58" width="13" height="84"/><rect x="140" y="58" width="13" height="84"/><rect x="117" y="96" width="23" height="4"/><rect x="42" y="56" width="22" height="3"/><rect x="42" y="141" width="21" height="3"/><rect x="98" y="56" width="25" height="3"/><rect x="98" y="141" width="25" height="3"/><rect x="134" y="56" width="25" height="3"/><rect x="134" y="141" width="25" height="3"/></g></svg><div class="brand">Mohammed Hadj Doula<small>Courtier immobilier · Vendirect inc.</small></div></div>
     <div class="top-right"><a class="lang" href="en.html" hreflang="en" lang="en" aria-label="English version">EN</a>
     <a class="top-phone" href="tel:+15145577290" data-call aria-label="Appeler Mohammed au 514 557-7290"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span class="num">514 557-7290</span><span class="call-short">Appeler</span></a></div>
   </div>
@@ -1106,23 +1129,23 @@ render();
 (function(){
   const box = document.getElementById("exit"); if (!box) return;
   const t0 = Date.now(); let shown = false;
+  const tactile = (window.matchMedia && matchMedia("(hover: none), (pointer: coarse)").matches) || window.innerWidth < 920;
   const seen = () => { try { return sessionStorage.getItem("exitSeen") === "1"; } catch (e) { return shown; } };
   const mark = () => { try { sessionStorage.setItem("exitSeen", "1"); } catch (e) {} };
   const sent = () => { const t = document.getElementById("thanks"), g = document.getElementById("guide-ok"); return (t && !t.hidden) || (g && !g.hidden); };
   const close = () => { box.hidden = true; };
   function open(how){
     if (shown || seen() || sent() || Date.now() - t0 < 8000) return;
-    const cb = document.getElementById("cb"); if (cb && !cb.hidden) return;
     shown = true; mark(); box.hidden = false; try { if (typeof gtag === "function") gtag("event", "exit_offer_shown", { how: how }); } catch (e) {}
   }
   // Ordinateur : la souris sort par le haut de la fenêtre
-  document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0 && window.innerWidth >= 920) open("souris"); });
+  document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0 && !tactile) open("souris"); });
   // Mobile : remontée rapide vers le haut après avoir lu une bonne partie de la page
   let lastY = scrollY, lastT = Date.now(), maxY = 0;
   addEventListener("scroll", () => {
     const y = scrollY, t = Date.now(); maxY = Math.max(maxY, y);
     const v = (y - lastY) / Math.max(1, t - lastT);
-    if (window.innerWidth < 920 && v < -2.5 && maxY > document.body.scrollHeight * 0.35 && y > 400) open("defilement");
+    if (tactile && v < -2.5 && maxY > document.body.scrollHeight * 0.35 && y > 400) open("defilement");
     lastY = y; lastT = t;
   }, { passive: true });
   document.getElementById("exit-close").addEventListener("click", close);
