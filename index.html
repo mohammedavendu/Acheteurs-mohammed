@@ -256,6 +256,34 @@ html.cb-open .sticky{visibility:hidden}
   .bulles-fixe.show{transform:none}
   .bulles-fixe .bulles{justify-content:center;margin:0}
 }
+section.block.courtier-mini{padding-block:24px}
+.cm{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 20px}
+.cm>svg{width:44px;height:44px;flex:none}
+.cm-id{flex:1 1 200px;min-width:0}
+.cm-id b{font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.1;margin-right:8px}
+.cm-id span{font-size:.8rem;color:var(--ink-soft)}
+.cm-id .zones{display:none}
+.cm-links{display:flex;flex-wrap:wrap;gap:8px}
+.cm-links .contact-item{padding:8px 14px;font-size:.86rem;background:#fff;border-radius:999px;gap:8px}
+.cm-links .contact-item svg{width:16px;height:16px}
+details.calc-legal summary{cursor:pointer;font-weight:700;color:var(--ink-soft)}
+details.calc-legal[open] summary{margin-bottom:4px}
+@media (max-width:920px){
+  .steps{gap:10px;margin-top:24px}
+  .steps li{display:grid;grid-template-columns:34px 1fr;column-gap:14px;padding:16px 18px}
+  .steps li::before{grid-row:span 2;margin:0}
+  .steps h3{font-size:1.02rem;margin-bottom:2px}
+  .steps p{font-size:.9rem}
+  .compare{gap:12px;margin-top:20px}
+  .guide-cover{display:none!important}
+  .guide-card{padding:22px 18px!important;gap:18px!important}
+  .guide-form{padding:18px!important}
+  .hero .bulles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero .bulles a{white-space:normal;line-height:1.25;font-size:.8rem;padding:9px 12px}
+  .guide-list{gap:6px;margin-top:12px}
+  .mail-bar,.mail-body>p:first-child{display:none}
+  .fin-panel{gap:20px}
+}
 .js-only{display:none}
 html.js .fin-start{display:none}
 html.js .soft-cta{display:inline-block}
@@ -642,9 +670,7 @@ html.js .js-only{display:grid}
         <ul>
           <li><span>–</span><span>Vous devez chercher vous-même, tous les jours.</span></li>
           <li><span>–</span><span>Vous traitez avec le courtier du vendeur, qui représente le vendeur.</span></li>
-          <li><span>–</span><span>Vous devez trouver vous-même votre financement.</span></li>
           <li><span>–</span><span>Difficile de savoir si le prix demandé est juste.</span></li>
-          <li><span>–</span><span>Inspection, certificat de localisation, déclarations du vendeur : à vérifier seul.</span></li>
         </ul>
       </div>
       <div class="col us">
@@ -652,9 +678,7 @@ html.js .js-only{display:grid}
         <ul>
           <li><span>✓</span><span>Les nouveautés vous arrivent automatiquement, dès leur inscription.</span></li>
           <li><span>✓</span><span>Un courtier dont le mandat est de défendre vos intérêts d'acheteur.</span></li>
-          <li><span>✓</span><span>Aide pour savoir combien vous pouvez être préqualifié.</span></li>
           <li><span>✓</span><span>Analyse des ventes comparables avant chaque offre.</span></li>
-          <li><span>✓</span><span>Accompagnement jusque chez le notaire.</span></li>
         </ul>
       </div>
     </div>
@@ -669,13 +693,8 @@ html.js .js-only{display:grid}
       <div class="fin-head">
         <div class="kicker">Financement</div>
         <h2>Sachez combien vous pouvez acheter, avant de visiter</h2>
-        <p>Travailler avec moi, c'est travailler avec une équipe de professionnels. Je vous mets en contact avec des courtiers hypothécaires et des spécialistes de confiance qui vous préqualifient et vous disent clairement combien vous pouvez acheter.</p>
+        <p>Je vous mets en contact avec des courtiers hypothécaires de confiance pour votre préqualification.</p>
       </div>
-      <ul class="fin-grid">
-        <li><span class="fin-ico"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z"/></svg></span><h3>Préqualification</h3><p>On établit votre capacité d'achat dès le départ, selon votre situation.</p></li>
-        <li><span class="fin-ico"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16 11a3 3 0 100-6 3 3 0 000 6zm-8 0a3 3 0 100-6 3 3 0 000 6zm0 2c-2.7 0-8 1.3-8 4v2h10v-2c0-1 .4-1.9 1.1-2.6C10 13.5 8.8 13 8 13zm8 0c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg></span><h3>Des professionnels de confiance</h3><p>Courtiers hypothécaires et spécialistes avec qui je travaille régulièrement.</p></li>
-        <li><span class="fin-ico"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1.2 14.6l-4.2-4.2 1.4-1.4 2.8 2.8 5.6-5.6 1.4 1.4-7 7z"/></svg></span><h3>Un budget clair</h3><p>Vous visitez seulement des propriétés dans vos moyens et vous faites vos offres en confiance.</p></li>
-      </ul>
       <div class="calc js-only" id="calculatrice">
         <div class="calc-in">
           <h3>Estimez votre capacité d'achat</h3>
@@ -700,7 +719,7 @@ html.js .js-only{display:grid}
           <span class="calc-sub" id="c-limite"></span>
           <p class="calc-expert"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z"/></svg><span>Laissez vos coordonnées : <b>un de mes experts hypothécaires vous contactera pour votre préqualification.</b></span></p>
           <a href="#formulaire" class="btn btn-fin" id="c-cta">Être contacté pour ma préqualification</a>
-          <p class="calc-legal">Estimation indicative seulement : ce n'est pas une préqualification ni une offre de financement. Hypothèses : test de résistance au plus élevé de votre taux + 2 % ou 5,25 %, amortissement de 25 ans, frais de logement (taxes et chauffage) estimés à 450 $/mois, ratios de 39 % et 44 %, mise de fonds minimale et assurance SCHL selon les règles en vigueur. Un courtier hypothécaire confirmera votre montant réel.</p>
+          <details class="calc-legal"><summary>Hypothèses du calcul</summary>Estimation indicative seulement : ce n'est pas une préqualification ni une offre de financement. Hypothèses : test de résistance au plus élevé de votre taux + 2 % ou 5,25 %, amortissement de 25 ans, frais de logement (taxes et chauffage) estimés à 450 $/mois, ratios de 39 % et 44 %, mise de fonds minimale et assurance SCHL selon les règles en vigueur. Un courtier hypothécaire confirmera votre montant réel.</details>
         </div>
       </div>
       <a href="#formulaire" class="btn btn-fin fin-start">Commencer mon projet</a>
@@ -719,7 +738,6 @@ html.js .js-only{display:grid}
           <li>Combien vous pouvez acheter et la mise de fonds minimale</li>
           <li>Le CELIAPP, le RAP et le crédit d'impôt pour premier acheteur</li>
           <li>Les frais à prévoir : taxe de bienvenue, notaire, inspection</li>
-          <li>L'offre d'achat, l'inspection et la signature chez le notaire</li>
         </ul>
       </div>
       <form class="guide-form" id="guide-form" action="https://api.web3forms.com/submit" method="POST">
@@ -748,18 +766,16 @@ html.js .js-only{display:grid}
 
 <!-- AVIS GOOGLE : ajoute ici 3 de tes vrais avis quand tu les auras (la preuve sociale augmente fortement les conversions). -->
 
-<section class="block">
-  <div class="wrap about">
-    <div class="kicker">Votre courtier</div>
-    <h2>Mohammed Hadj Doula</h2>
-    <p class="intro">Courtier immobilier résidentiel chez Vendirect inc., j'accompagne les acheteurs à Montréal, sur la Rive-Nord et sur la Rive-Sud. Mon travail : vous montrer les bonnes propriétés rapidement, vous aider à éviter les pièges et négocier le bon prix.</p>
-    <p class="intro">J'offre un accompagnement complet dès le départ, y compris pour savoir combien vous pouvez être préqualifié. Je travaille avec différents spécialistes et courtiers hypothécaires pour trouver le financement qui vous convient.</p>
-    <ul class="zones" aria-label="Secteurs couverts"><li>Montréal</li><li>Rive-Nord</li><li>Rive-Sud</li></ul>
-    <div class="sig">Mohammed Hadj Doula<small>Courtier immobilier résidentiel · Vendirect inc., agence immobilière · Permis OACIQ J2572</small></div>
-    <div class="contact-row">
-      <a class="contact-item" href="tel:+15145577290" data-call><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span><small>Téléphone</small>514 557-7290</span></a>
-      <a class="contact-item" href="mailto:Mohammedavendu@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg><span><small>Courriel</small>Mohammedavendu@gmail.com</span></a>
-      <a class="contact-item" href="https://www.instagram.com/mohammed_hadjdoula/" target="_blank" rel="noopener" aria-label="Instagram de Mohammed (nouvel onglet)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.3-3.2a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg><span><small>Instagram</small>@mohammed_hadjdoula</span></a>
+<section class="block courtier-mini" id="courtier">
+  <div class="wrap">
+    <div class="cm">
+      <svg viewBox="0 0 200 200" width="64" height="64" aria-hidden="true"><g fill="none" stroke="#b8925a" stroke-linecap="round" stroke-linejoin="round"><path d="M38 184V90A62 62 0 0 1 162 90V184" stroke-width="4.0"/><path d="M47 184V90A53 53 0 0 1 153 90V184" stroke-width="1.6"/><path d="M32 184H168" stroke-width="3.0"/><path d="M72 66L100 46L128 66" stroke-width="3.2"/></g><g fill="#1d1c1a" transform="translate(100 140) scale(.78) translate(-100.5 -100)"><rect x="50" y="58" width="5" height="84"/><polygon points="51,58 63,58 89,142 83,142"/><polygon points="83,142 87,142 108,58 104,58"/><rect x="104" y="58" width="13" height="84"/><rect x="140" y="58" width="13" height="84"/><rect x="117" y="96" width="23" height="4"/><rect x="42" y="56" width="22" height="3"/><rect x="42" y="141" width="21" height="3"/><rect x="98" y="56" width="25" height="3"/><rect x="98" y="141" width="25" height="3"/><rect x="134" y="56" width="25" height="3"/><rect x="134" y="141" width="25" height="3"/></g></svg>
+      <div class="cm-id"><b>Mohammed Hadj Doula</b><span>Courtier immobilier résidentiel · Vendirect inc., agence immobilière · Permis OACIQ J2572</span><ul class="zones" aria-label="Secteurs couverts"><li>Montréal</li><li>Rive-Nord</li><li>Rive-Sud</li></ul></div>
+      <div class="cm-links">
+      <a class="contact-item" href="tel:+15145577290" data-call><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span>514 557-7290</span></a>
+      <a class="contact-item" href="mailto:Mohammedavendu@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg><span>Courriel</span></a>
+      <a class="contact-item" href="https://www.instagram.com/mohammed_hadjdoula/" target="_blank" rel="noopener" aria-label="Instagram de Mohammed (nouvel onglet)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.3-3.2a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg><span>Instagram</span></a>
+      </div>
     </div>
   </div>
 </section>
