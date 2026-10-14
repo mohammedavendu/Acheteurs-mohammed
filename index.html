@@ -477,6 +477,13 @@ section.block.final p{color:#d9d2c3}
 section.block.final .btn-main{background:var(--gold);color:var(--ink)}
 .bulles-fixe{background:rgba(255,255,255,.96)}
 </style>
+<style id="fix-ipad">
+/* Empêche le léger défilement horizontal (iPad) et garde l'exemple d'alerte à côté du formulaire */
+html,body{overflow-x:clip}
+.hero{overflow-x:clip}
+.float-badge{right:10px}
+@media (min-width:921px){.hero-visual{position:sticky;top:84px;align-self:start}}
+</style>
 </head>
 <body>
 
